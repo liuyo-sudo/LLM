@@ -7,7 +7,7 @@ from vllm import LLM, SamplingParams
 import re
 
 # 设置路径
-model_path = "./deepseek_r1_lora_finetuned"
+model_path = "deepseek_r1_lora_finetuned"
 dataset_name = "open-r1/Mixture-of-Thoughts"
 output_file = "./evaluation_results.txt"
 
