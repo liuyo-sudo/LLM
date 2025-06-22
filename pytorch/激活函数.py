@@ -137,3 +137,27 @@ if __name__ == "__main__":
     '''
     s = nn.Softmax(x)
     print(s)  # 输出：tensor([0.0900, 0.2447, 0.6652])
+
+    x = torch.tensor([-1.0, 0.0, 1.0])
+    activations = {
+        'Sigmoid': nn.Sigmoid(),
+        'ReLU': nn.ReLU(),
+        'LeakyReLU': nn.LeakyReLU(0.01),
+        'GELU': nn.GELU(),
+        'Softmax': nn.Softmax(dim=0)
+    }
+    for name, act in activations.items():
+        print(f"{name}: {act(x)}")
+
+    import tensorflow as tf
+
+    x = tf.constant([-1.0, 0.0, 1.0])
+    activations = {
+        'Sigmoid': tf.nn.sigmoid,
+        'ReLU': tf.nn.relu,
+        'LeakyReLU': tf.keras.layers.LeakyReLU(alpha=0.3),
+        'GELU': tf.nn.gelu,
+        'Softmax': tf.nn.softmax
+    }
+    for name, act in activations.items():
+        print(f"{name}: {act(x)}")

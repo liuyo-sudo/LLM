@@ -32,7 +32,7 @@ load_dotenv()
 
 # 配置
 MYSQL_URL = "mysql+mysqlconnector://root:BW%40lyb3210@localhost:3306/langchain_db"
-REDIS_URL = "redis://localhost:6379"
+REDIS_URL = "rd://localhost:6379"
 SECRET_KEY = "123456"
 
 
@@ -254,7 +254,7 @@ def create_access_token(data: dict):
 #         async with redis_client as conn:
 #             await conn.ping()
 #         logger.info("成功连接到 Redis")
-#     except redis.RedisError as e:
+#     except rd.RedisError as e:
 #         logger.error(f"连接 Redis 失败: {str(e)}")
 #         raise
 #     except Exception as e:
