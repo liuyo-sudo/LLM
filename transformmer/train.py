@@ -60,6 +60,7 @@ def create_masks(src, tgt, pad_idx=0):
     # 创建源序列掩码，标记非填充 token（True）
     # 形状：(batch_size, 1, 1, seq_len)
     src_mask = (src != pad_idx).unsqueeze(1).unsqueeze(2)
+    print(src_mask)
     # 创建目标序列掩码，标记非填充 token
     # 形状：(batch_size, 1, seq_len, 1)
     tgt_mask = (tgt != pad_idx).unsqueeze(1).unsqueeze(3)

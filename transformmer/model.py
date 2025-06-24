@@ -226,7 +226,9 @@ class Transformer(nn.Module):
     def forward(self, src, tgt, src_mask=None, tgt_mask=None):
         # 源序列嵌入：将 token ID 转换为 d_model 维向量
         # 乘以 sqrt(d_model) 调整嵌入向量尺度，稳定梯度
-        src_embedded = self.src_embedding(src) * math.sqrt(self.d_model) + self.positional_encoding[:, :src.size(1), :].to(src.device)
+        tt = math.sqrt(self.d_model)
+        ll = self.src_embedding(src) * tt
+        src_embedded =  ll + self.positional_encoding[:, :src.size(1), :].to(src.device)
         # 对源序列嵌入应用 dropout
         src_embedded = self.dropout(src_embedded)
         # 目标序列嵌入，处理方式同源序列
